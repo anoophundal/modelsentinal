@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+body { @apply bg-surface text-zinc-200 antialiased; font-feature-settings: "tnum" 1, "cv11" 1; }
+:focus-visible { outline: 2px solid #8ab4ff; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
