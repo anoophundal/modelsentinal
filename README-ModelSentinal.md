@@ -49,18 +49,17 @@
 
 ```mermaid
 flowchart LR
-flowchart LR
-    D["UCI Bank Marketing"] --> M["Split and XGBoost pipeline"]
+    D["UCI Bank Marketing"] --> M["XGBoost pipeline"]
     M --> R["Reference window"]
     R --> I["Synthetic incident window"]
     R --> T["Performance and drift tools"]
     I --> T
     T --> E["Evidence JSON"]
-    E --> G["LangGraph rule-based node"]
     E --> A["FastAPI investigation route"]
-    A -.-> UI["Next.js dashboard"]
+    E --> G["LangGraph rule-based node"]
+    A --> UI["Next.js dashboard"]
     F["Built-in fixture"] --> UI
-    N["Next.js investigation route"] -.-> NV["NVIDIA Nemotron API"]
+    N["Next.js investigation route"] --> NV["NVIDIA Nemotron API"]
 ```
 
 The LangGraph output is **not consumed by the API or the dashboard**. The API builds its response directly from the evidence file. By default the dashboard renders the built-in fixture; setting `NEXT_PUBLIC_API_BASE_URL` makes it fetch from the API instead.
